@@ -1,0 +1,9 @@
+﻿#Create Options Classes
+- Options Classes are used to represent configuration settings from files such as appsettings.json. 
+- Instead of reading configuration values using string keys throughout the application, 
+   we map related settings into strongly typed classes. 
+- Examples include JWT settings, pricing settings, email settings, Twilio settings, and notification settings.
+-  First, create a folder named Options where we will create all our Options classes.
+
+#Options/PricingOptions.cs
+The PricingOptions class represents configurable pricing-related settings used during Shopping Cart and Checkout calculations. It contains the tax rate, shipping charge, free-shipping threshold, and currency used by the application.

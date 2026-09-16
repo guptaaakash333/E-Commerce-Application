@@ -1,0 +1,51 @@
+﻿Data/ECommerceDbContext.cs
+The ECommerceDbContext class represents the database session for our E-Commerce application.
+
+It is responsible for:
+	* Defining database tables using DbSet properties
+	* Configuring entity properties
+	* Configuring Primary Keys
+	* Configuring Foreign Keys
+	* Configuring entity relationships
+	* Configuring database indexes
+	* Configuring column sizes and decimal precision
+	* Seeding Master data
+	* Seeding Categories
+	* Seeding Products
+
+
+"ConnectionStrings": {
+	"ECommerceDBConnection": "Server=LAPTOP-6P5NK25R\\SQLSERVER2022DEV;Database=FullStack_ECommerceDB; 
+	                          Trusted_Connection=True;TrustServerCertificate=True;"                    
+}
+
+--------------------
+Here:
+	*Server specifies the local SQL Server instance.
+	*Database= FullStack_ECommerceDB specifies the name of our database.
+	*Trusted_Connection=True tells SQL Server to use Windows Authentication.
+	*TrustServerCertificate=True allows the application to trust the SQL Server certificate during local development.
+
+
+-------------- Now register ECommerceDbContext after creating the WebApplicationBuilder.
+
+builder.Services.AddDbContext<ECommerceDbContext>(options =>
+{
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString(
+            "ECommerceDBConnection"));
+});
+
+Here: 
+**AddDbContext<ECommerceDbContext>()* 
+	registers our DbContext with the Dependency Injection container.
+
+The following code:
+**options.UseSqlServer(...)* 
+	tells Entity Framework Core that SQL Server will be used as the database provider.
+
+The following code:
+builder.Configuration.GetConnectionString("ECommerceDBConnection") 
+	reads the Connection String named ECommerceDBConnection from the ConnectionStrings section of the appsettings.json file.
+
+Once registered, ECommerceDbContext can be injected into Repositories and other required classes using Constructor Dependency Injection.

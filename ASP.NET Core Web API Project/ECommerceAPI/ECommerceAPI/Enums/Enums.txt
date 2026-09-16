@@ -1,0 +1,8 @@
+﻿@#Creating Enums
+Enums are used to define a fixed set of named values in the application. 
+They make the code easier to read and avoid using unclear numbers or strings. 
+For example, instead of using 1, 2, and 3 for payment status, we can use names such as Pending, Paid, and Failed. 
+	First, create a folder named Enums where we will create all our Enums.
+
+Enums/PaymentMethod.cs
+The PaymentMethod enum represents the payment option selected by the customer during checkout. Using an enum allows us to use strongly typed values such as PaymentMethod.CashOnDelivery, PaymentMethod.Card, and PaymentMethod.Upi instead of hard-coded integer values.

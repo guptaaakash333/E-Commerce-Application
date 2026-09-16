@@ -1,0 +1,13 @@
+﻿ Repository Layer is responsible for communicating with the database through Entity Framework Core. 
+ Instead of allowing Services or Controllers to directly access DbContext, 
+	we will create repository interfaces and their implementation classes.
+
+The basic flow will be:
+	Controller → Service → Repository → ECommerceDbContext → SQL Server
+Here:
+	* Controllers will handle HTTP requests and responses.
+	* Services will contain the business logic.
+	* Repositories will contain database-access logic.
+	* ECommerceDbContext will communicate with SQL Server.
+	* SQL Server is the database.
+
