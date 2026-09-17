@@ -44,18 +44,14 @@ namespace ECommerceAPI.Repositories.Implementations
         {
             return await _context.CustomerAddresses
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x =>
-                    x.Id == addressId &&
-                    x.CustomerId == customerId);
+                .FirstOrDefaultAsync(x => x.Id == addressId && x.CustomerId == customerId);
         }
 
         // Gets a specific address belonging to the specified customer with tracking enabled for updates.
         public async Task<CustomerAddress?> GetByIdForUpdateAsync(int addressId, int customerId)
         {
             return await _context.CustomerAddresses
-                .FirstOrDefaultAsync(x =>
-                    x.Id == addressId &&
-                    x.CustomerId == customerId);
+                .FirstOrDefaultAsync(x => x.Id == addressId && x.CustomerId == customerId);
         }
 
         // Adds a new customer address to the DbContext for insertion into the database.
