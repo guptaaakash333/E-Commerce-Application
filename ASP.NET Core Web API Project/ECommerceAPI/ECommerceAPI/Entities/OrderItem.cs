@@ -1,7 +1,8 @@
 ﻿namespace ECommerceAPI.Entities
 {
     /// <summary>
-    /// The OrderItem entity stores each product included in an order. Product Name, SKU, Image URL, and Unit Price are copied into this table
+    /// The OrderItem entity stores each product included in an order. 
+    /// Product Name, SKU, Image URL, and Unit Price are copied into this table
     /// so that historical order information remains unchanged even if the original product information is modified later.
     /// </summary>
 

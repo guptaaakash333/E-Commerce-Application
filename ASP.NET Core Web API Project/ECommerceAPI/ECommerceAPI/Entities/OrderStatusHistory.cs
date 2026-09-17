@@ -1,6 +1,12 @@
 ﻿using ECommerceAPI.Enums;
 namespace ECommerceAPI.Entities
 {
+    /// <summary>
+    /// The OrderStatusHistory entity maintains the complete status-change history of an order. 
+    /// Whenever the order status changes, a new record is created containing the previous status, the new status, 
+    /// the time of the change, and optional remarks.
+    /// </summary>
+
     public sealed class OrderStatusHistory : AuditableEntity
     {
         public long Id { get; set; }
