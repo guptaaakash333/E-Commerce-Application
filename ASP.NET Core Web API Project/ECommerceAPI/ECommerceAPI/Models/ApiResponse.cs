@@ -25,9 +25,7 @@
             };
         }
 
-        public static ApiResponse<T> FailureResponse(
-            string message,
-            IDictionary<string, string[]>? errors = null,
+        public static ApiResponse<T> FailureResponse(string message, IDictionary<string, string[]>? errors = null,
             string? traceId = null)
         {
             return new ApiResponse<T>
