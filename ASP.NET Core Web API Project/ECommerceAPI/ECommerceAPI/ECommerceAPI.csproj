@@ -25,7 +25,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="DTOs\Responses\" />
     <Folder Include="DTOs\Requests\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Mappings\" />
     <Folder Include="BackgroundServices\" />
     <Folder Include="Logs\" />

@@ -1,6 +1,7 @@
 using ECommerceAPI.Data;
 using ECommerceAPI.Extensions;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Crypto;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,11 @@ builder.Services.AddRepositories();
 builder.Services.AddGlobalExceptionHandling();
 
 
+// Register and configure JWT Bearer Authentication.
+// JWT settings such as Key, Issuer, Audience,
+// and token validation rules are read from configuration.
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,6 +46,17 @@ app.UseExceptionHandler();
 
 app.UseHttpsRedirection();
 
+// Enable authentication middleware.
+// This reads the JWT Bearer token from the incoming request,
+// validates it, and creates the authenticated user identity.
+// UseAuthentication() determines the identity of the Customer from the JWT Access Token.
+app.UseAuthentication();
+
+// Enable authorization middleware.
+// After authentication identifies the user,
+// authorization checks whether the user is allowed
+// to access the requested protected resource.
+// UseAuthorization() verifies whether the authenticated Customer is allowed to access a protected endpoint.
 app.UseAuthorization();
 
 app.MapControllers();

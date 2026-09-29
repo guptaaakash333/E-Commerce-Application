@@ -9,7 +9,6 @@ namespace ECommerceAPI.Entities
     /// Each generated code has an expiration time, tracks failed attempts, and can only be successfully used once.
     /// </summary>
 
-
     public sealed class VerificationCode : AuditableEntity
     {
         public long Id { get; set; }
